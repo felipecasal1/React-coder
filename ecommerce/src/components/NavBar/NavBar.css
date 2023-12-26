@@ -15,7 +15,7 @@ h1{
 .opciones-nav{
     display: flex;
     gap: 90px;
-    margin-top: -60px;
+    margin-top: -20px;
 }
 .btn-nav{
     font-size: 1.6em;

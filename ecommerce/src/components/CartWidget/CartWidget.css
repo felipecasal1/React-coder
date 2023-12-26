@@ -3,3 +3,10 @@
 justify-content: end;
 margin-top: -20px;
 }
+a{
+    text-decoration: none;
+}
+a span{
+ color: red;
+ font-size: 30px;
+}
