@@ -13,9 +13,9 @@ const NavBar = () => {
             <div className="container-nav">
                 <ul className="opciones-nav">
                     <NavLink to="/" className="btn-nav">Home</NavLink>
-                    <NavLink to={"/category/Celulares"} className="btn-nav">Celulares</NavLink>
-                    <NavLink to={"/category/Relojes"} className="btn-nav">Relojes</NavLink>
-                    <NavLink to={"/category/Auriculares"} className="btn-nav">Auriculares</NavLink>
+                    <NavLink to={"/category/celulares"} className="btn-nav">Celulares</NavLink>
+                    <NavLink to={"/category/relojes"} className="btn-nav">Relojes</NavLink>
+                    <NavLink to={"/category/auriculares"} className="btn-nav">Auriculares</NavLink>
                  
                 </ul>
             </div>
