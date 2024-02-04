@@ -1,9 +1,7 @@
+import ItemCount from "../ItemCount/ItemCount"
 import "./ItemDetail.css"
 
-
-
-
-const ItemDetail = ({ name, price, Img, stock, description, category }) => {
+const ItemDetail = ({ name, price, Img, stock, description, category, quantity }) => {
     return (
         <>
 
@@ -35,6 +33,7 @@ const ItemDetail = ({ name, price, Img, stock, description, category }) => {
 
               
           
+          <ItemCount initial={0} stock={stock} onAdd={quantity =>{console.log(`se agregaron ${quantity} productos`)}}/>
 
 
             </article>
