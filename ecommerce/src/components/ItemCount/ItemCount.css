@@ -1,0 +1,4 @@
+.botones-count{
+    display: flex;
+    flex-direction: column;
+}

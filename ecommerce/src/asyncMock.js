@@ -33,6 +33,28 @@ const products = [
      description: "Auriculares via BlueTooth",
 
     
+    },
+    {
+     id: "4",
+     name:"Iphone 11" ,
+     price:  500,
+     category:"celulares" ,
+     Img :"https://tpmobile.vn/wp-content/uploads/2019/11/637037652462548298_11-trang-768x768.jpg" ,
+     stock: 10,
+     description: "iphone 11",
+
+    
+    },
+    {
+     id: "5",
+     name:"Air Pods Max" ,
+     price:  300,
+     category:"auriculares" ,
+     Img :"https://d3fa68hw0m2vcc.cloudfront.net/b65/239000797.jpeg" ,
+     stock: 3,
+     description: "Auriculares via BlueTooth calidad confortable",
+
+    
     }
 ]
 
