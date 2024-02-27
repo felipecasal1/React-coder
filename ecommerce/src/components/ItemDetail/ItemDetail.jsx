@@ -1,16 +1,16 @@
 import ItemCount from "../ItemCount/ItemCount"
 
 
-const ItemDetail = ({itemFiltered, name }) => {
+const ItemDetail = ({itemFiltered }) => {
 	return (
 		<section>
-			<h3 >{name}</h3>
+			<h3 >{itemFiltered.name}</h3>
 		
 			<div >
-				Price $ {}
+				Price $ {itemFiltered.price}
 			</div>
 
-			<div >Stock {}</div>
+			<div >Stock {itemFiltered.stock}</div>
 			<div>
 				{}
 			</div>

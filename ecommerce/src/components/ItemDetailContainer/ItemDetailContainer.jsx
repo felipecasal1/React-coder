@@ -26,7 +26,7 @@ export const ItemDetailContainer = () => {
 
 
 
-	return loading ? <Loading /> : <ItemDetail itemFiltered={itemFiltered} name={"hola"} />;
+	return loading ? <Loading /> : <ItemDetail itemFiltered={itemFiltered} />;
 };
 
 
