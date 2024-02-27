@@ -1,37 +1,45 @@
-import "./ItemCount.css"
-import { useState } from "react"
+import { useContext, useState } from "react";
+import { CartContext } from "../../context/cartContext";
 
-const ItemCount = ({ stock, initial, onAdd }) => {
-    const [quantity, setQuantity] = useState(initial)
 
-    const increment = () => {
-        if (quantity < stock) {
-            setQuantity(quantity + 1)
+const ItemCount = ({ item }) => {
+    const [initial, setInitial] = useState(1);
+    const [errorStock, setErrorStock] = useState(false);
+    const { handleAdd } = useContext(CartContext)
+
+    const handleClick = (value) => {
+        if (initial + value > 0 && initial + value <= item.stock) {
+            setInitial(initial + value);
+            setErrorStock(false);
+        } else {
+            initial + value >= item.stock && setErrorStock(true);
         }
-    }
-    const decrement = () => {
-        if (quantity > 1) {
-            setQuantity(quantity - 1)
-        }
+    };
 
-    }
+    const addProduct = () => {
+        handleAdd(item, initial);
+    };
+
     return (
-        <div >
-            <div className="botones-count">
-                <div className="Controls">
-                    <h4 className="Number">{quantity}</h4>
-                    <button className="Button" onClick={decrement}>-</button>
-                    <button className="Button" onClick={increment}>+</button>
-
-                </div>
-
-                <button className="Button" onClick={() => onAdd(quantity)} disabled={!stock}>
-                    agregar al carrito
+        <div className="container--itemCount">
+            <div className="container--itemCount--buttons">
+                <button
+                    className="itemCount--button"
+                    onClick={() => handleClick(-1)}>
+                    -
+                </button>
+                <div className="itemCount--count">{initial}</div>
+                <button
+                    className="itemCount--button"
+                    onClick={() => handleClick(1)}>
+                    +
                 </button>
             </div>
-
+            <button onClick={addProduct} className="itemCount--buttonCart">
+                Add to Cart
+            </button>
         </div>
-    )
-}
+    );
+};
 
 export default ItemCount
