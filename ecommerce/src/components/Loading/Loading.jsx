@@ -1,4 +1,4 @@
-
+import "./Loading.css";
 
 export const Loading = ({ color, myClass, other }) => {
 	const customProps = true

@@ -1,20 +1,20 @@
 import ItemCount from "../ItemCount/ItemCount"
 
 
-const ItemDetail = ({itemFiltered }) => {
+const ItemDetail = ({ itemFiltered }) => {
 	return (
 		<section>
 			<h3 >{itemFiltered.name}</h3>
 		
 			<div >
-				Price $ {itemFiltered.price}
+				Price $ {itemFiltered}
 			</div>
 
-			<div >Stock {itemFiltered.stock}</div>
+			<div >Stock {itemFiltered}</div>
 			<div>
 				{}
 			</div>
-			<ItemCount item={itemFiltered} />
+			<ItemCount itemFiltered={itemFiltered} />
 		</section>
 	);
 };

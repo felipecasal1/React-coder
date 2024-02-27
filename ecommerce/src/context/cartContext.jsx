@@ -7,12 +7,12 @@ export const CartProvider = ({ children }) => {
 
 
 	const handleAdd = (item, quantity) => {
-		if (isInCart(item.id)) {
-			console.log("ya esta en el carrito")
-		} else {
-			
+		// if (!isInCart(item.id)) {
 			setCarrito([...carrito, { ...item, cantidad: quantity }]);
-		}
+		// } else {
+			
+		// 	console.log("ya esta en el carrito")
+		// }
 	
 	};
 

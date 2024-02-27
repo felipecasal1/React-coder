@@ -1,28 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import {products} from "../Data/items"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { Loading } from "../Loading/Loading";
-import { getProducts }  from "../../asyncMock"
+import { getProductsById }  from "../../asyncMock"
 
 export const ItemDetailContainer = () => {
-	const [itemFiltered, setItemFiltered] = useState(null);
+	const [itemFiltered, setItemFiltered] = useState({});
 
 	const [loading, setLoading] = useState(true);
 
-	const { idItem } = useParams();
+	const { itemId } = useParams();
 
 	useEffect(() => {
 		setLoading(true);
 
-		getProducts(idItem)
+		getProductsById(itemId)
 			.then((response) => setItemFiltered(response))
 			.finally(
 				setTimeout(() => {
 					setLoading(false);
-				}, 2000)
+				}, 6000)
 			);
-	}, [idItem]);
+	}, [itemId]);
 
 
 

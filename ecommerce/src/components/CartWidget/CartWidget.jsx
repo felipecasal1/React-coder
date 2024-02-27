@@ -9,8 +9,7 @@ const {carrito} = useContext(CartContext)
 
     return(
         <Link to="/carrito" className="logo-container">
-        <a href=""><span>{carrito}</span><i className="fa-solid fa-shop fa-5x "></i></a>
-        
+        <a href=""><span>{carrito.lenght}</span><i className="fa-solid fa-shop fa-5x "></i></a>
     </Link>
     )
 

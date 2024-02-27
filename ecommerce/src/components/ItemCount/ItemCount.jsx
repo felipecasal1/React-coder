@@ -7,6 +7,7 @@ const ItemCount = ({ item }) => {
     const [errorStock, setErrorStock] = useState(false);
     const { handleAdd } = useContext(CartContext)
 
+
     const handleClick = (value) => {
         if (initial + value > 0 && initial + value <= item.stock) {
             setInitial(initial + value);
@@ -18,7 +19,11 @@ const ItemCount = ({ item }) => {
 
     const addProduct = () => {
         handleAdd(item, initial);
+
     };
+
+
+
 
     return (
         <div className="container--itemCount">
