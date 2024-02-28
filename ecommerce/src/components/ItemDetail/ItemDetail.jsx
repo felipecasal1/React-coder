@@ -9,15 +9,9 @@ import { CartContext } from "../../context/cartContext";
 
 const ItemDetail = ({ itemFiltered }) => {
 
-	// const [quantityAdded, setQuantityAdded] = useState(0)
-
-	const {carrito} = useState(CartContext)
 
 
-	// const handleOnAdd = (quantity) => {
-	// 	setQuantityAdded(quantity)
-	// 	console.log("se agrego")
-	// }
+
 
 	return (
 		<section className="container-componente">
@@ -31,6 +25,7 @@ const ItemDetail = ({ itemFiltered }) => {
 				<span>Stock : {itemFiltered.stock}</span>
 				
 				<p> {itemFiltered.description}</p>
+				<p>id : {itemFiltered.id}</p>
 
 			</div>
         

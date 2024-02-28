@@ -5,21 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 
-import { initializeApp } from "firebase/app";
-
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAoQUT5QpHB0MG-25JDrHM0n1qwoztgLFM",
-  authDomain: "coderhouse-6be32.firebaseapp.com",
-  projectId: "coderhouse-6be32",
-  storageBucket: "coderhouse-6be32.appspot.com",
-  messagingSenderId: "36051307346",
-  appId: "1:36051307346:web:f5ce2706a326a08206c88b"
-};
-
-const app = initializeApp(firebaseConfig);
-// Initialize Firebase
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
