@@ -1,4 +1,12 @@
-.botones-count{
+.container-botones{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+.btn-agregar-carrito{
+    background-color: yellowgreen;
+    width: 100px;
+    height: 30px;
 }

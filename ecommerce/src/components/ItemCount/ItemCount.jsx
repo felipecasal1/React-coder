@@ -1,5 +1,7 @@
 import { useContext, useState } from "react";
 import { CartContext } from "../../context/cartContext";
+import "./ItemCount.css"
+import { Link } from "react-router-dom";
 
 
 const ItemCount = ({ item }) => {
@@ -17,32 +19,44 @@ const ItemCount = ({ item }) => {
         }
     };
 
+    
+    const [quantityAdded, setQuantityAdded] = useState(0)
+    
+    const handleOnAdd = (quantity) => {
+        setQuantityAdded(quantity)
+        console.log("se agrego")
+    }
     const addProduct = () => {
         handleAdd(item, initial);
-
+        handleOnAdd(initial)
     };
 
 
 
 
     return (
-        <div className="container--itemCount">
-            <div className="container--itemCount--buttons">
+        <div >
+            <div className="container-botones">
                 <button
-                    className="itemCount--button"
                     onClick={() => handleClick(-1)}>
                     -
                 </button>
-                <div className="itemCount--count">{initial}</div>
+                <div>{initial}</div>
                 <button
-                    className="itemCount--button"
                     onClick={() => handleClick(1)}>
                     +
                 </button>
-            </div>
-            <button onClick={addProduct} className="itemCount--buttonCart">
+                { 
+                quantityAdded > 0 ? (
+                    <Link to="/carrito">Terminar compra </Link>
+                ) : (
+            <button onClick={addProduct} className="btn-agregar-carrito">
                 Add to Cart
             </button>
+                
+                )
+                }
+            </div>
         </div>
     );
 };

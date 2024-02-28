@@ -16,7 +16,6 @@ const NavBar = () => {
                     <NavLink to={"/category/celulares"} className="btn-nav">Celulares</NavLink>
                     <NavLink to={"/category/relojes"} className="btn-nav">Relojes</NavLink>
                     <NavLink to={"/category/auriculares"} className="btn-nav">Auriculares</NavLink>
-                 
                 </ul>
             </div>
             <CartWidget/>

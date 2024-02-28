@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 
+
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
@@ -7,22 +8,50 @@ export const CartProvider = ({ children }) => {
 
 
 	const handleAdd = (item, quantity) => {
-		// if (!isInCart(item.id)) {
+		if (isInCart(item.id)) {
+			alert("ya esta en el carrito")
+		} else {
+
 			setCarrito([...carrito, { ...item, cantidad: quantity }]);
-		// } else {
-			
-		// 	console.log("ya esta en el carrito")
-		// }
-	
+		}
+
 	};
 
-	const isInCart = (itemId) =>{
+	const isInCart = (itemId) => {
 		return carrito.some(prod => prod.id === itemId)
 	}
 
-	const cantidadCarrito = () => {
+	const clearCart = () => {
+		setCarrito([])
+	};
 
-		return carrito.length;
+	const totalPrice = (cartItems) => {
+	
+		const getItemPrice = (item) => item.price * item.cantidad;
+
+		const total = cartItems.reduce((accumulator, item) => accumulator + getItemPrice(item), 0);
+
+		console.log(cartItems)
+		return total;
+	};
+
+	
+
+	const removeItem = (productId) => {
+
+		const ProductoEliminado = carrito.filter((item) => item.id !== productId);
+
+		setCarrito(ProductoEliminado)
+	};
+
+
+
+	const totalQuantity = (cartItems) => {
+		const getItemQuantity = (item) => item.quantity;
+
+		const totalQuantity = cartItems.reduce((accumulator, item) => accumulator + getItemQuantity(item), 0);
+
+		return totalQuantity;
 	};
 
 
@@ -37,7 +66,11 @@ export const CartProvider = ({ children }) => {
 				carrito,
 				setCarrito,
 				handleAdd,
-				cantidadCarrito,
+				isInCart,
+				clearCart,
+				totalPrice,
+				removeItem,
+				totalQuantity,
 			}}>
 			{children}
 		</CartContext.Provider>
