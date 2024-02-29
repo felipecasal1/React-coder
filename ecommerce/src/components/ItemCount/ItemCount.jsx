@@ -10,6 +10,8 @@ const ItemCount = ({ item }) => {
     const { handleAdd } = useContext(CartContext)
 
 
+
+
     const handleClick = (value) => {
         if (initial + value > 0 && initial + value <= item.stock) {
             setInitial(initial + value);
@@ -18,6 +20,7 @@ const ItemCount = ({ item }) => {
             initial + value >= item.stock && setErrorStock(true);
         }
     };
+
 
     
     const [quantityAdded, setQuantityAdded] = useState(0)
@@ -48,7 +51,7 @@ const ItemCount = ({ item }) => {
                 </button>
                 { 
                 quantityAdded > 0 ? (
-                    <Link to="/carrito">Terminar compra </Link>
+                    <Link to="/carrito" >Terminar compra </Link>
                 ) : (
             <button onClick={addProduct} className="btn-agregar-carrito">
                 Add to Cart

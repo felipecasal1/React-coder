@@ -1,8 +1,5 @@
-import { useState } from "react";
 import ItemCount from "../ItemCount/ItemCount"
 import "./ItemDetail.css"
-import { Link, NavLink } from "react-router-dom";
-import { CartContext } from "../../context/cartContext";
 
 
 

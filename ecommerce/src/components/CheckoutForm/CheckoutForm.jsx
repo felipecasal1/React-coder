@@ -1,57 +1,77 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { CartContext } from "../../context/cartContext"
+import { addDoc, collection } from "firebase/firestore"
+import { db } from "../../service/firebase/firebaseConfig"
 
 
+const CheckoutForm = ({}) => {
 
-const CheckoutForm = ({onConfirm}) =>{
+
+    const [name, setName] = useState("")
+    const [phone, setPhone] = useState("")
+    const [email, setEmail] = useState("")
+
+    const {carrito, totalPrice} = useContext(CartContext)
 
 
-    const {name,setName} =useState("")
-    const {phone,setPhone} =useState("")
-    const {email,setEmail} =useState("")
+    const order = {
+            orderData   : {
+                name,
+                phone,
+                email,
+                carrito,
+                totalPrice,
 
-    const handleConfirm = (event) =>{
-        event.preventDefault()
-
-        const userData ={
-            name,phone,email
         }
-
-        onConfirm(userData)
     }
 
-    const setter = (e) =>{
-        setName(e.value)
+
+
+
+    const handleConfirm = (e) => {
+        e.preventDefault()
+        const orderCollection = collection(db, "orders")
+
+        addDoc(orderCollection, order)
+            .then(({ id }) => console.log(id, "dar el ID"))
+
+        console.log(order)
+
     }
     return (
         <div>
             <form onSubmit={handleConfirm}>
+
+
                 <label>
                     nombre
-                    <input 
-                    type="text"
-                    value={name}
-                    onSubmit={(target) => setName(target.value)}
+                    <input
+                        type="text"
+                        value={name}
+                        onChange={({ target }) => setName(target.value)}
                     />
-                    <button></button>
-                </label> 
+                </label>
+
+
+
                 <label>
                     Telefono
-                    <input 
-                    type="text"
-                    value={phone}
-                    onChange={({target}) => setPhone(target.value)}
+                    <input
+                        type="text"
+                        value={phone}
+                        onChange={({ target }) => setPhone(target.value)}
                     />
                 </label>
                 <label>
                     Email
-                    <input 
-                    type="email"
-                    value={email}
-                    onChange={({target}) => setEmail(target.value)}
+                    <input
+                        type="email"
+                        value={email}
+                        onChange={({ target }) => setEmail(target.value)}
                     />
                 </label>
                 <div>
-                    <button type="submit" > crear Orden</button>
+                    <button type="submit" > Crear Orden </button>
                 </div>
             </form>
         </div>

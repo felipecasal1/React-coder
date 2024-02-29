@@ -3,8 +3,8 @@ import { CartContext } from "../../context/cartContext"
 import { Link } from "react-router-dom"
 import "./Carrito.css"
 
-const Carrito = () => {
-    const { carrito, isInCart, removeItem, clearCart, totalPrice, totalQuantity } = useContext(CartContext)
+const Carrito = ( ) => {
+    const { carrito, removeItem, clearCart, totalPrice, totalQuantity } = useContext(CartContext)
 
     if (totalQuantity(carrito) === 0) {
         return (
@@ -46,7 +46,7 @@ const Carrito = () => {
 
             <button onClick={() => clearCart()}>Limpiar Carrito</button>
 
-            <Link to="/checkout">Check Out </Link>
+            <Link to="/checkout" >Check Out </Link>
         </div>
 
     )

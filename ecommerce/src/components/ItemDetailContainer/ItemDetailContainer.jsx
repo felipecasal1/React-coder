@@ -13,7 +13,6 @@ export const ItemDetailContainer = () => {
 	const [loading, setLoading] = useState(true);
 
 	const { itemId } = useParams();
-	console.log(itemId)
 
 	useEffect(() => {
 		setLoading(true);
@@ -24,7 +23,6 @@ export const ItemDetailContainer = () => {
 		getDoc(docRef)
 			.then(response => {
 				const data = response.data()
-				console.log(response)
 				const itemAdapted = { id: response.id, ...data }
 
 				setItemFiltered(itemAdapted)
