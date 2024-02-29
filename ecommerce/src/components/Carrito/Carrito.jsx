@@ -1,16 +1,16 @@
 import { useContext } from "react"
 import { CartContext } from "../../context/cartContext"
 import { Link } from "react-router-dom"
-
+import "./Carrito.css"
 
 const Carrito = () => {
     const { carrito, isInCart, removeItem, clearCart, totalPrice, totalQuantity } = useContext(CartContext)
 
     if (totalQuantity(carrito) === 0) {
         return (
-            <div>
+            <div className="container-carrrito-vacio">
                 <h1>No hay productos en tu carrito</h1>
-                <Link to="/">Productos</Link>
+                <Link to="/" className="link-product">Productos</Link>
             </div>
         )
     }
@@ -23,11 +23,12 @@ const Carrito = () => {
 
     const printCart = (carrito) => {
         return (
-            <ul>
+            <ul className="container-productos">
                 {carrito.map((item) => (
-                    <li key={item.id}>
-                        {item.name} - Precio: ${item.price} - Cantidad: {item.cantidad}
-                        <button onClick={() => removeItem(item.id)}>Eliminar</button>
+                    <li key={item.id} className="each-product">
+                        {item.name}  Precio: ${item.price} Cantidad: {item.cantidad}
+                        <button className="btn-x" onClick={() => removeItem(item.id)}>X</button>
+                    
                     </li>
                 ))}
             </ul>
@@ -37,11 +38,11 @@ const Carrito = () => {
 
     const precioFinal = totalPrice(carrito)
     return (
-        <div>
+        <div className="container-precio">
 
             {printCart(carrito)}
 
-            <h3>Total: {precioFinal}</h3>
+            <h3 className="sub-total">Total: ${precioFinal}</h3>
 
             <button onClick={() => clearCart()}>Limpiar Carrito</button>
         </div>

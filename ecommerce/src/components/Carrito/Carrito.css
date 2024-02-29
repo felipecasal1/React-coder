@@ -1,0 +1,43 @@
+.container-productos{
+    background-color: rgb(255, 255, 255);
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.each-product{
+    font-size: 2em;
+    padding: 30px;
+}
+.btn-x{
+    color: red;
+    margin-left: 100px;
+    
+    width: 30px;
+    height: 30px;
+}
+.container-precio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sub-total{
+    border: 4px solid black;
+    border-radius: 10px;
+    background-color: grey;
+}
+.container-carrrito-vacio{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.link-product{
+    color: purple;
+    font-size: 2em;
+    border: solid 6px grey;
+    padding: 5px;
+    border-radius: 30px;
+}

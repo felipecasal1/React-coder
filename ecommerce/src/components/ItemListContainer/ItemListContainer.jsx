@@ -25,7 +25,7 @@ const ItemListContainer = ({ greeting }) => {
             .then(response => {
                 const itemsAdapted = response.docs.map(doc => {
                     const data = doc.data()
-                    return { id: doc.id, ...data }
+                    return {...data, id: doc.id }
                 
                 })
                 setProducts(itemsAdapted)
