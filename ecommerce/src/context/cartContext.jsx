@@ -57,7 +57,7 @@ export const CartProvider = ({ children }) => {
 
 
 	useEffect(() => {
-		console.log(carrito);
+	
 	}, [carrito]);
 
 	return (

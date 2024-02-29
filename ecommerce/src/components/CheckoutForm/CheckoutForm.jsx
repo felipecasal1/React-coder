@@ -2,29 +2,30 @@ import { useContext, useState } from "react"
 import { CartContext } from "../../context/cartContext"
 import { addDoc, collection } from "firebase/firestore"
 import { db } from "../../service/firebase/firebaseConfig"
+import "./CheckoutForm.css"
+import { Link } from "react-router-dom"
 
-
-const CheckoutForm = ({}) => {
+const CheckoutForm = ({ }) => {
 
 
     const [name, setName] = useState("")
     const [phone, setPhone] = useState("")
     const [email, setEmail] = useState("")
 
-    const {carrito, totalPrice} = useContext(CartContext)
+    const { carrito } = useContext(CartContext)
+
+    const [idDelProducto, setIdDelProducto] = useState("")
 
 
     const order = {
-            orderData   : {
-                name,
-                phone,
-                email,
-                carrito,
-                totalPrice,
+        orderData: {
+            name,
+            phone,
+            email,
+            carrito,
 
         }
     }
-
 
 
 
@@ -33,18 +34,28 @@ const CheckoutForm = ({}) => {
         const orderCollection = collection(db, "orders")
 
         addDoc(orderCollection, order)
-            .then(({ id }) => console.log(id, "dar el ID"))
+            .then(({ id }) => {
+                setIdDelProducto(id)
+            })
 
-        console.log(order)
+
 
     }
+
+
+   
+        const [showText, setShowText] = useState(false);
+
+        const handleButtonClick = () => {
+            setShowText(true);
+        };
     return (
         <div>
-            <form onSubmit={handleConfirm}>
+            <form onSubmit={handleConfirm} className="container-form">
 
 
-                <label>
-                    nombre
+                <label className="container-label">
+                    Nombre
                     <input
                         type="text"
                         value={name}
@@ -54,7 +65,7 @@ const CheckoutForm = ({}) => {
 
 
 
-                <label>
+                <label className="container-label">
                     Telefono
                     <input
                         type="text"
@@ -62,16 +73,22 @@ const CheckoutForm = ({}) => {
                         onChange={({ target }) => setPhone(target.value)}
                     />
                 </label>
-                <label>
+                <label className="container-label">
                     Email
                     <input
+
                         type="email"
                         value={email}
                         onChange={({ target }) => setEmail(target.value)}
                     />
                 </label>
                 <div>
-                    <button type="submit" > Crear Orden </button>
+                    <button type="submit" className="btn-orden" onClick={handleButtonClick}> Crear Orden </button>
+                    {showText && <div>
+                        <p>Tu Orden ah sido Creada!! </p>
+                        <p>ID de la orden : {idDelProducto}</p>
+                        </div>
+                    }
                 </div>
             </form>
         </div>
