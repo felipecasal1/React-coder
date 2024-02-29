@@ -45,6 +45,8 @@ const Carrito = () => {
             <h3 className="sub-total">Total: ${precioFinal}</h3>
 
             <button onClick={() => clearCart()}>Limpiar Carrito</button>
+
+            <Link to="/checkout">Check Out </Link>
         </div>
 
     )
