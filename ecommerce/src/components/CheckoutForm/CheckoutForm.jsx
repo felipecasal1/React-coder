@@ -37,13 +37,10 @@ const CheckoutForm = ({ }) => {
             .then(({ id }) => {
                 setIdDelProducto(id)
             })
-
-
-
     }
 
 
-   
+
         const [showText, setShowText] = useState(false);
 
         const handleButtonClick = () => {

@@ -51,7 +51,7 @@ const ItemCount = ({ item }) => {
                 </button>
                 { 
                 quantityAdded > 0 ? (
-                    <Link to="/carrito" >Terminar compra </Link>
+                    <Link to="/carrito" >Terminar Compra  </Link>
                 ) : (
             <button onClick={addProduct} className="btn-agregar-carrito">
                 Add to Cart
