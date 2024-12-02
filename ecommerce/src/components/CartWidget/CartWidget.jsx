@@ -7,7 +7,7 @@ const CartWidget = () => {
 
     return (
         <Link to="/carrito" className="logo-container">
-            <i className="fa-solid fa-shop fa-5x "></i>
+            <i className="fa-solid fa-shop fa-2x "></i>
         </Link>
     )
 

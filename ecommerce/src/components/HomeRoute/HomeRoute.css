@@ -1,0 +1,50 @@
+.container{
+    margin: 0px 0px 10px 0px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    color: white;
+    background-image: url("../img/hero_endframe__b3cjfkquc2s2_xlarge.jpg");
+    background-size: contain; /* La imagen se ajusta al contenedor sin distorsionar */
+  background-position: center center; /* Centra la imagen */
+    height: 700px;
+}
+.container-second-img{
+    margin: 0px 0px 10px 0px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    color: white;
+    background-image: url("../img/iphone-16-second-picture-home.png");
+    background-size: contain; /* La imagen se ajusta al contenedor sin distorsionar */
+  background-position: center center; /* Centra la imagen */
+    height: 700px;
+}
+.h1{
+    margin: 30px 0px -20px 0px;
+    padding: 0px;
+    font-size: 2.9em;
+}
+.text{
+    font-size: 1.4em;
+    margin-bottom: 25px;
+}
+
+.a-learn{
+    color: white;
+    background-color:#0077ED;
+    padding: 7px 10px 10px 10px;
+    margin: 30px;
+    border: solid #0077ED 1px;
+    border-radius: 30px;
+
+}
+.a-buy{
+    color: #0077ED;
+    background-color: transparent;
+    padding: 10px 20px;
+    border: solid #0077ED 1px;
+    border-radius: 20px;
+}

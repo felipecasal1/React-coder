@@ -1,12 +1,15 @@
 .logo-container{
     display: flex;
 justify-content: end;
-margin-top: -20px;
+background-color: black;
 }
+
+
 a{
     text-decoration: none;
+    color: white;
 }
 a span{
- color: red;
- font-size: 30px;
+color: red;
+font-size: 30px;
 }

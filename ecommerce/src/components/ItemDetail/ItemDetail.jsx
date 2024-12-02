@@ -22,7 +22,7 @@ const ItemDetail = ({ itemFiltered }) => {
 				<span>Stock : {itemFiltered.stock}</span>
 				
 				<p> {itemFiltered.description}</p>
-				<p>id : {itemFiltered.id}</p>
+				
 
 			</div>
         

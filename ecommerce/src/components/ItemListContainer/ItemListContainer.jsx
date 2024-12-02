@@ -8,7 +8,8 @@ import { useParams } from "react-router-dom"
 import { collection, getDocs, where , query } from "firebase/firestore"
 import { db } from "../../service/firebase/firebaseConfig"
 
-const ItemListContainer = ({ greeting }) => {
+
+const ItemListContainer = ({  }) => {
     const [products, setProducts] = useState([])
     const { categoryId } = useParams()
 
@@ -24,10 +25,13 @@ const ItemListContainer = ({ greeting }) => {
         getDocs(collectionRef)
             .then(response => {
                 const itemsAdapted = response.docs.map(doc => {
+            
                     const data = doc.data()
                     return {...data, id: doc.id }
-                
+                    
                 })
+                itemsAdapted.reverse()
+                
                 setProducts(itemsAdapted)
             })
             .catch(error =>{
@@ -36,14 +40,11 @@ const ItemListContainer = ({ greeting }) => {
 
 
             
-            
         }, [categoryId])
-        
 
     return (
 
         <div>
-            <h1 >{greeting}</h1>
             <ItemList products={products} />
         </div>
 

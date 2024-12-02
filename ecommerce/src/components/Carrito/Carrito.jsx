@@ -26,7 +26,7 @@ const Carrito = ( ) => {
             <ul className="container-productos">
                 {carrito.map((item) => (
                     <li key={item.id} className="each-product">
-                        {item.name}  Precio: ${item.price} Cantidad: {item.cantidad}
+                        {item.name}  Precio: ${item.price} Cantidad: {item.cantidad} 
                         <button className="btn-x" onClick={() => removeItem(item.id)}>X</button>
                     
                     </li>

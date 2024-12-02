@@ -16,7 +16,7 @@ const Item = ({ id, name, Img, price, stock }) => {
                 <p>
                     stock: {stock}
                 </p>
-                <Link to={`/item/${id}`}>Ver Detalle</Link>   
+                <Link to={`/item/${id}`} className="ver-detalle">Ver Detalle</Link>   
             
             </article>
         </>
